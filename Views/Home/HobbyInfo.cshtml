@@ -27,7 +27,17 @@
 
     <div>
         <h3>Become an Enthusiast!</h3>
-        <a href="/add/@Model.HobbyId">Add to Hobbies</a>
+        @if(ViewBag.id == Model.UserId)
+        {
+            <h5>You are the event creator</h5>
+        }
+            else if(Model.Faves.Any(h => h.UserId == ViewBag.id))
+            {
+                <h5>You are already an enthusiast</h5>
+            }
+            else{
+            <a href="/add/@Model.HobbyId">Add to Hobbies</a>
+            }
     </div>
 </body>
 </html>
