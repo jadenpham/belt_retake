@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    @model Hobby
+    <div>
+        <a href="/logout">Log Out</a>
+        <a href="/home/@ViewBag.id">Home</a>
+        <h1>@Model.Name</h1>
+        <h3>Description:</h3>
+        <p>@Model.Description</p>
+    </div>
+    <div>
+        <h3>Hiking Enthusiasts:</h3>
+        <ul>
+            @for(int i =0; i< @Model.Faves.Count; i++)
+            {
+                <li>@Model.Faves[i].Enthusiast.FirstName</li>
+            }
+        </ul>
+    </div>
+
+    <div>
+        <h3>Become an Enthusiast!</h3>
+        <a href="/add/@Model.HobbyId">Add to Hobbies</a>
+    </div>
+</body>
+</html>

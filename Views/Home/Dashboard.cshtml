@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    @model List<Hobby>
+    <div>
+        <a href="/home/@ViewBag.id">Dashboard</a>
+        <a href="/logout">Log Out</a>
+        <h1>Hobbies</h1>
+        <table>
+            <th>
+                <tr>
+                    <td><h3>Name</h3> </td>
+                    <td><h3># of Enthusiasts</h3></td>
+                </tr>
+            </th>
+            <tbody>
+            @foreach(var hob in Model)
+            {
+                <tr>
+                    <td><a href="/hobby/@hob.HobbyId">@hob.Name</a></td>
+                    <td>@hob.Faves.Count</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <div>
+            <ul>
+                <li><h4>Top Novice</h4> @ViewBag.novice</li>
+                <li><h4>Top Intermediate</h4> @ViewBag.inter</li>
+                <li><h4>Top Expert</h4> @ViewBag.expert</li>
+            </ul>
+        </div>
+        <a href="/new">Create a Hobby</a>
+    </div>
+</body>
+</html>

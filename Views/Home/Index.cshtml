@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="reggy">
+    @model RegWLog
+    <h1>Register</h1>
+    <form action="/register" method="post">
+        <h4>First Name</h4>
+        <span asp-validation-for="UserReg.FirstName"></span>
+        <input asp-for="UserReg.FirstName">
+
+        <h4>Last Name</h4>
+        <span asp-validation-for="UserReg.LastName"></span>
+        <input asp-for="UserReg.LastName">
+
+        <h4>UserName</h4>
+        <span asp-validation-for="UserReg.UserName"></span>
+        <input asp-for="UserReg.UserName">
+        
+        <h4>Email</h4>
+        <span asp-validation-for="UserReg.Email"></span>
+        <input asp-for="UserReg.Email">
+
+        <h4>Password</h4>
+        <span asp-validation-for="UserReg.Password"></span>
+        <input tpye="password" asp-for="UserReg.Password">
+        
+        <h4>Confirm Password</h4>
+        <span asp-validation-for="UserReg.Confirm"></span>
+        <input asp-for="UserReg.Confirm">
+        <input type="submit" value="Register">
+    </form>
+</div>
+<div class="login">
+    <h1>Login</h1>
+        <form action="/login" method="post">
+            <h3><label asp-for="UserLog.UserName"></label></h3>
+            <span asp-validation-for="UserLog.UserName"></span>
+            <input asp-for="UserLog.UserName">
+
+            <h3><label asp-for="UserLog.Password"></label></h3>
+            <span asp-validation-for="UserLog.Password"></span>
+            <input asp-for="UserLog.Password">
+
+            <button>Login</button>
+        </form>    
+
+</div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    @model Hobby
+    <div>
+        <a href="/home/@ViewBag.id">Dashboard</a>
+        <h1>Create a Hobby</h1>
+        <form asp-action="newHobby" asp-controller="Home" method="post">
+            <h4><label asp-for="Name"></label></h4>
+            <span asp-validation-for="Name"></span>
+            <input asp-for="Name">
+
+            <h4><label asp-for="Description"></label></h4>
+            <span asp-validation-for="Description"></span>
+            <textarea asp-for="Description" cols="30" rows="10"></textarea>
+
+            <span asp-validation-for="Difficulty"></span>
+            <select asp-for="Difficulty">
+                <option value="Hard">Hard</option>
+                <option value="Normal">Normal</option>
+                <option value="Easy">Easy</option>
+            </select>
+            <button>Create Hobby</button>
+        </form>
+    </div>
+</body>
+</html>
